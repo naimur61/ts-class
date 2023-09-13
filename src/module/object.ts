@@ -1,18 +1,23 @@
 class Animal {
-	name: string;
-	species: string;
-	sound: string;
+	constructor(public name: string, public species: string, public sound: string) {}
 
-	constructor(name: string, species: string, sound: string) {
-		this.name = name;
-		this.sound = sound;
-		this.species = species;
-	}
-
-	makeSound() {
-		console.log(`The ${this.name} says ${this.sound}`);
+	public makeSound() {
+		console.log(`${this.name} says ${this.sound}`);
 	}
 }
 
 const dog = new Animal("German Shepard", "dog", "Ghew Ghew");
+const cat = new Animal("Charlie", "cat", "mew mew");
+
 dog.makeSound();
+cat.makeSound();
+
+class Animal1 {
+	constructor(public name: string, public species: string, public sound: string) {}
+
+	public makeSound() {
+		console.log(`${this.name} says ${this.sound}`);
+	}
+}
+const cow = new Animal1("Sonai", "Cow", "hamba hamba");
+cow.makeSound();

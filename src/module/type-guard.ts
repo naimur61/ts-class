@@ -29,13 +29,73 @@ function getInfo(user: normalUser | adminUser | constructorUser): string {
 }
 
 const normal1: normalUser = { name: "Chris Hemsowrth" };
-console.log(getInfo(normal1));
+// console.log(getInfo(normal1));
 
 const normal2: constructorUser = { name: "Robert Downy Junior", role: "constructor" };
-console.log(getInfo(normal2));
+// console.log(getInfo(normal2));
 
 const normal3: adminUser = { name: "Naimur", role: "admin" };
-console.log(getInfo(normal3));
+// console.log(getInfo(normal3));
 
-const normal4: constructorUser = { name: "Tom Holand", role: "constructor" };
-console.log(getInfo(normal4));
+// instanceof Guard
+
+class Animals {
+	name: string;
+	species: string;
+	constructor(name: string, species: string) {
+		this.name = name;
+		this.species = species;
+	}
+	makeSound() {
+		console.log("I am making sound.");
+	}
+}
+
+class Dog extends Animals {
+	constructor(name: string, species: string) {
+		super(name, species);
+	}
+	makeBark() {
+		console.log("I am barking");
+	}
+}
+
+class Cat extends Animals {
+	constructor(name: string, species: string) {
+		super(name, species);
+	}
+	makeMeaw() {
+		console.log("I am Meawing");
+	}
+}
+
+class Bird extends Animals {
+	constructor(name: string, species: string) {
+		super(name, species);
+	}
+	makeCuckoo() {
+		console.log("I am cuckooing");
+	}
+}
+
+function isBird(animal: Animals): animal is Bird {
+	return animal instanceof Bird;
+}
+
+function getAnimal(animal: Animals) {
+	if (animal instanceof Dog) {
+		animal.makeBark();
+	} else if (animal instanceof Cat) {
+		animal.makeMeaw();
+	} else if (isBird(animal)) {
+		animal.makeCuckoo();
+	} else {
+		animal.makeSound();
+	}
+}
+
+const animal1 = new Dog("Charlie", "Dog");
+const animal2 = new Cat("Jarry", "Cat");
+const animal3 = new Bird("Kiwi", "Bird");
+
+getAnimal(animal3);

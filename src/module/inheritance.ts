@@ -42,3 +42,7 @@ class Teacher extends Person {
 
 const teacher1 = new Teacher("Jhankar Mahbub", 40, "chikago", "Professor");
 console.log(teacher1.takeClasses(3));
+
+const aa: string = "22";
+const bb = aa.toString();
+console.log(typeof bb);
